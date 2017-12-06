@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Facebook Assistant",
+  "version": "0.0.1",
+  "icons": {
+    "16": "images/icon--16.png",
+    "48": "images/icon--48.png",
+    "128": "images/icon--128.png"
+  },
+  "permissions" : [
+    "declarativeContent"
+  ],
+  "page_action": {
+    "default_icon": {
+      "16": "images/icon--16.png",
+      "24": "images/icon--24.png",
+      "32": "images/icon--32.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.facebook.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
